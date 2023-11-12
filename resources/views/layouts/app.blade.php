@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <title>DevStagram - @yield('titulo') </title>
 
 
@@ -21,7 +22,10 @@
                         class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded-md text-sm uppercase font-bold cursor-pointer">
                         Crear
                     </a>
-                    <a href="">Hola: <span class="font-normal capitalize">{{ auth()->user()->username }}</span> </a>
+                    <a 
+                    href="{{route('posts.index',auth()->user()->username)}}"
+                    >Hola: <span class="font-normal capitalize">{{ auth()->user()->username }}</span> 
+                </a>
 
                     <form action="{{ 'logout' }}" method="POST">
                         @csrf
